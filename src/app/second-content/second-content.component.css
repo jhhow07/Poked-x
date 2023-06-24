@@ -1,0 +1,27 @@
+
+.filter_box {
+  display: flex;
+  align-items: center;
+}
+
+.search_field {
+  font-size: 2vh;
+  font-family: 'Nunito', sans-serif;
+  padding: 1.2vh;
+  border-radius: 0px;
+  border: none;
+  outline: none;
+  background-color: #c6c6c65d;
+}
+
+.search_button {
+  background: #EA686D;
+  color: white;
+  font-size: 3vh;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  border-radius: 0px 8px 8px 0px;
+  padding: 2px 13px;
+}
