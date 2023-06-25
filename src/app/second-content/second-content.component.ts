@@ -21,6 +21,62 @@ export class SecondContentComponent {
       code: '#0346',
       img: '../../assets/images/pidgeotto.png',
     },
+    {
+      name: 'Charizard',
+      weight: '19kg',
+      height: '1.10cm',
+      code: '#0256',
+      img: '../../assets/images/charmeleon.png',
+    },
+    {
+      name: 'Pidgeotto',
+      weight: '29kg',
+      height: '2.10cm',
+      code: '#0346',
+      img: '../../assets/images/pidgeotto.png',
+    },
+    {
+      name: 'Charizard',
+      weight: '19kg',
+      height: '1.10cm',
+      code: '#0256',
+      img: '../../assets/images/charmeleon.png',
+    },
+    {
+      name: 'Pidgeotto',
+      weight: '29kg',
+      height: '2.10cm',
+      code: '#0346',
+      img: '../../assets/images/pidgeotto.png',
+    },
+    {
+      name: 'Charizard',
+      weight: '19kg',
+      height: '1.10cm',
+      code: '#0256',
+      img: '../../assets/images/charmeleon.png',
+    },
+    {
+      name: 'Pidgeotto',
+      weight: '29kg',
+      height: '2.10cm',
+      code: '#0346',
+      img: '../../assets/images/pidgeotto.png',
+    },
+    {
+      name: 'Charizard',
+      weight: '19kg',
+      height: '1.10cm',
+      code: '#0256',
+      img: '../../assets/images/charmeleon.png',
+    },
+    {
+      name: 'Pidgeotto',
+      weight: '29kg',
+      height: '2.10cm',
+      code: '#0346',
+      img: '../../assets/images/pidgeotto.png',
+    },
   ];
 
   currentIndex = 0;
