@@ -25,3 +25,135 @@
   border-radius: 0px 8px 8px 0px;
   padding: 2px 13px;
 }
+
+.pokemons_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2vh;
+}
+
+.most_wanted_text {
+  color: #2F3E77;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  font-size: 2.5vh;
+}
+
+.most_wanted_box {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-right: 0.3vh;
+  padding-left: 0.3vh;
+}
+.most_wanted_pokemon {
+  width: 23vh;
+  height: 31vh;
+  padding-right: 2.5vh;
+  padding-left: 2.5vh;
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+  box-shadow: 0px 15px 15px 0px #2F3E771A;
+}
+
+.pokemon_name_and_id {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pokemon_name {
+  color: #233674;
+  font-family: Nunito;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.pokemon_id {
+  color: #233674;
+  font-family: Nunito;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.pokemon_img_box {
+  width: 100%;
+  height: 14vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+}
+
+.pokemon_weight_label,
+.pokemon_height_label {
+  color: #233674;
+  font-family: Nunito;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.pokemon_weight,
+.pokemon_height {
+  display: flex;
+  justify-content: space-between;
+  color: #233674;
+  font-family: Nunito;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.left_arrow_box,
+.right_arrow_box {
+  display: flex;
+  align-items: center;
+}
+
+.left_arrow {
+  background: #EA686D;
+  color: white;
+  font-size: 5.5vh;
+  border-radius: 30px;
+  margin-right: -0.2vh;
+}
+
+.right_arrow {
+  background: #EA686D;
+  color: white;
+  font-size: 5.5vh;
+  border-radius: 30px;
+  margin-left: -0.2vh;
+}
+
+/*
+.left_arrow {
+  width: 9vh;
+  display: flex;
+  position: absolute;
+  align-content: center;
+  justify-content: center;
+  left: 44px;
+  bottom: -10%;
+}
+
+.right_arrow {
+  width: 9vh;
+  display: flex;
+  position: absolute;
+  align-content: center;
+  justify-content: center;
+  rotate: 180deg;
+  right: 44px;
+  bottom: -5.8%;
+} */

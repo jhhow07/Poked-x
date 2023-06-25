@@ -2,3 +2,39 @@
   <input class="search_field" type="text">
   <input class="search_button" type="submit" value="Buscar">
 </div>
+<div class="pokemons_box">
+  <p class="most_wanted_text">Mais procurados</p>
+  <div class="most_wanted_box">
+      <!-- <span (click)="changeIndex(-1)" class="material-symbols-outlined">
+        arrow_back_ios
+      </span> -->
+      <div class="left_arrow_box">
+        <!-- <img (click)="changeIndex(-1)" class="left_arrow" src="../../assets/images/arrow.png"> -->
+        <span (click)="changeIndex(-1)" class="material-symbols-outlined left_arrow">
+          chevron_left
+        </span>
+      </div>
+    <div class="most_wanted_pokemon">
+      <div class="pokemon_name_and_id">
+        <span class="pokemon_name">{{ most_wanted_pokemons[currentIndex].name }}</span>
+        <span class="pokemon_id">{{ most_wanted_pokemons[currentIndex].code }}</span>
+      </div>
+      <div class="pokemon_img_box">
+        <img src="{{ most_wanted_pokemons[currentIndex].img}}">
+      </div>
+      <div class="pokemon_height">
+        <span class="pokemon_height_label">Altura:</span>
+        <span class="pokemon_height">{{ most_wanted_pokemons[currentIndex].height }}</span>
+      </div>
+      <div class="pokemon_weight">
+        <span class="pokemon_weight_label">Peso</span>
+        <span class="pokemon_weight">{{ most_wanted_pokemons[currentIndex].weight }}</span>
+      </div>
+    </div>
+    <div class="right_arrow_box">
+      <span (click)="changeIndex(1)" class="material-symbols-outlined right_arrow">
+        chevron_right
+      </span>
+    </div>
+  </div>
+</div>
