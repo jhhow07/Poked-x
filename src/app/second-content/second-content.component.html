@@ -1,9 +1,17 @@
 <div class="filter_box">
-  <input class="search_field" type="text">
-  <input class="search_button" type="submit" value="Buscar">
+    <input class="search_field" #input type="text" (click)="openPokemonList()" (input)="filterPokemonList(input.value)">
+    <input class="search_button" type="submit" value="Buscar">
+</div>
+<div style="width: 68%;" *ngIf="showList">
+  <ul class="pokemon_filtered_list">
+    <li (click)="selectPokemon(pokemon)" *ngFor="let pokemon of filteredList.slice(0, 15)" class="pokemon_list">
+      <img class="pokemon_list_img" [src]="getPokemonImg(pokemon.id)">
+      {{ pokemon.name }}
+    </li>
+  </ul>
 </div>
 <div class="pokemons_box">
-  <p class="most_wanted_text">Mais procurados</p>
+  <p class="most_wanted_text">Mais procurados (ainda não funcionando)</p>
   <div class="most_wanted_box">
     <div class="left_arrow_box">
       <span (click)="changeIndex(-1)" class="material-symbols-outlined left_arrow">
@@ -13,18 +21,18 @@
     <div class="most_wanted_pokemon">
       <div class="pokemon_name_and_id">
         <span class="pokemon_name">{{ most_wanted_pokemons[currentIndex].name }}</span>
-        <span class="pokemon_id">{{ most_wanted_pokemons[currentIndex].code }}</span>
+        <span class="pokemon_id">#{{ most_wanted_pokemons[currentIndex].id }}</span>
       </div>
       <div class="pokemon_img_box">
-        <img src="{{ most_wanted_pokemons[currentIndex].img}}">
+        <img width="140vh" [src]="getPokemonImg(most_wanted_pokemons[currentIndex].id)">
       </div>
       <div class="pokemon_height">
         <span class="pokemon_height_label">Altura:</span>
-        <span class="pokemon_height">{{ most_wanted_pokemons[currentIndex].height }}</span>
+        <span class="pokemon_height">{{ formatMeasure(most_wanted_pokemons[currentIndex].height, 'height')}}</span>
       </div>
       <div class="pokemon_weight">
         <span class="pokemon_weight_label">Peso</span>
-        <span class="pokemon_weight">{{ most_wanted_pokemons[currentIndex].weight }}</span>
+        <span class="pokemon_weight">{{ formatMeasure(most_wanted_pokemons[currentIndex].weight, 'weight')}}</span>
       </div>
     </div>
     <div class="right_arrow_box">
@@ -37,21 +45,21 @@
     Pokédex
   </p>
   <div class="pokedex_box">
-    <div class="pokedex_pokemon" *ngFor="let pokemon of most_wanted_pokemons">
+    <div class="pokedex_pokemon" *ngFor="let pokemon of pokemonList">
       <div class="pokemon_name_and_id">
         <span class="pokemon_name">{{ pokemon.name }}</span>
-        <span class="pokemon_id">{{ pokemon.code }}</span>
+        <span class="pokemon_id">#{{ pokemon.id }}</span>
       </div>
       <div class="pokemon_img_box">
-        <img src="{{ pokemon.img}}">
+        <img width="140vh" [src]="getPokemonImg(pokemon.id)">
       </div>
       <div class="pokemon_height">
         <span class="pokemon_height_label">Altura:</span>
-        <span class="pokemon_height">{{ pokemon.height }}</span>
+        <span class="pokemon_height">{{ formatMeasure(pokemon.height, 'height') }}</span>
       </div>
       <div class="pokemon_weight">
-        <span class="pokemon_weight_label">Peso</span>
-        <span class="pokemon_weight">{{ pokemon.weight }}</span>
+        <span class="pokemon_weight_label">Peso:</span>
+        <span class="pokemon_weight">{{ formatMeasure(pokemon.weight, 'weight') }}</span>
       </div>
     </div>
   </div>

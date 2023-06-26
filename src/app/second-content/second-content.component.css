@@ -15,6 +15,7 @@
   outline: none;
   background-color: #e4e4e48a;
   box-shadow: -1px 8px 9px #0000001f;
+  text-transform: capitalize;
 }
 
 .search_button {
@@ -75,6 +76,7 @@
   line-height: 30px;
   letter-spacing: 0em;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .pokemon_id {
@@ -166,4 +168,36 @@
   padding-bottom: 2.5vh;
   box-shadow: 1px 8px 12px 0px #00000029;
   margin-bottom: 4vh;
+}
+
+.pokemon_filtered_list {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 58%;
+  height: fit-content;
+  overflow: auto;
+  padding: 0;
+  margin: 0;
+  margin-top: 0.5%;
+  list-style: none;
+  background: #ebebeb;
+  font-family: 'Nunito';
+  text-transform: capitalize;
+  font-size: 2vh;
+  font-weight: 500;
+  box-shadow: -1px 4px 16px #00000047;
+  border-radius: 0px 0px 3px 3px;
+}
+
+.pokemon_list {
+  display: flex;
+  align-items: center;
+  padding: 0.7vh;
+  border-bottom: 0.1px solid #0000001f;
+}
+
+.pokemon_list_img {
+  width: 5vh;
+  margin-right: 5%;
 }
