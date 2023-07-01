@@ -1,0 +1,26 @@
+<div class="modal" [ngClass]="{'open': showModal}">
+  <div class="modal-content">
+    <span class="close" (click)="close()">X</span>
+    <img class="inicie_logo" src="../../../assets/images/logo_inicie.svg" >
+    <div class="pokemon_box">
+      <span class="pokemon_name">{{ pokemon?.name }}</span>
+      <div class="pokemon_id_box"><span class="pokemon_id_label">Cod:</span> <span class="pokemon_id">#00{{ pokemon?.id }}</span></div>
+      <div class="pokemon_type_box">
+        <span class="pokemon_type_label">Tipo:</span>
+        <div class="pokemon_types"><span [style.background]="changeTypeColor(type.type.name)" class="type" *ngFor="let type of pokemon?.types">{{ type.type.name }}</span></div>
+      </div>
+      <div class="pokemon_img_box">
+        <img class="pokemon_img" [src]="getPokemonImg(pokemon?.id)">
+      </div>
+      <!-- <div class="someImgs_Box">
+        <img class="img[0]" [src]="getPokemonImg(pokemon?.id)">
+        <img class="img[1]" [src]="getPokemonImg(pokemon?.id)">
+        <img class="img[2]" [src]="getPokemonImg(pokemon?.id)">
+        <img class="img[3]" [src]="getPokemonImg(pokemon?.id)">
+      </div> -->
+      <!-- <div class="pokemon_status_box">
+
+      </div> -->
+    </div>
+  </div>
+</div>

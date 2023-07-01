@@ -1,6 +1,6 @@
 <div class="filter_box">
     <input class="search_field" #input type="text" (click)="openPokemonList()" (input)="filterPokemonList(input.value)">
-    <input class="search_button" type="submit" value="Buscar">
+    <input class="search_button" type="submit" value="Buscar" (click)="searchPokemon()">
 </div>
 <div style="width: 68%;" *ngIf="showList">
   <ul class="pokemon_filtered_list">
@@ -11,7 +11,7 @@
   </ul>
 </div>
 <div class="pokemons_box">
-  <p class="most_wanted_text">Mais procurados (ainda não funcionando)</p>
+  <p class="most_wanted_text">Mais procurados</p>
   <div class="most_wanted_box">
     <div class="left_arrow_box">
       <span (click)="changeIndex(-1)" class="material-symbols-outlined left_arrow">

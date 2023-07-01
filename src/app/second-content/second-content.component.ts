@@ -1,7 +1,6 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { debounceTime } from 'rxjs/operators';
 import { PokemonServiceService } from '../services/pokemon-service.service';
+import { ModalService } from '../services/modal.service';
 
 @Component({
   selector: 'app-second-content',
@@ -46,8 +45,9 @@ export class SecondContentComponent {
   filteredList: any[] = [];
   showList = false;
   blurTimeout: any;
+  selectedPokemon: any;
 
-  constructor(private pokemonService: PokemonServiceService) {}
+  constructor(private pokemonService: PokemonServiceService, private modalService: ModalService) {}
 
   ngOnInit() {
     this.getPokemonList();
@@ -122,20 +122,6 @@ export class SecondContentComponent {
     this.showList = true;
   }
 
-  selectPokemon(pokemon: any) {
-  this.input.nativeElement.value = pokemon.name;
-  const index = this.most_wanted_pokemons.findIndex((p: any) => p.name === pokemon.name);
-  if (index !== -1) {
-    this.most_wanted_pokemons[index].quantity++;
-  } else {
-    this.most_wanted_pokemons.push({ ...pokemon, quantity: 1 });
-  }
-
-  this.most_wanted_pokemons.sort((a: any, b: any) => b.quantity - a.quantity );
-  console.log(this.most_wanted_pokemons);
-  this.closePokemonList();
-}
-
 closePokemonList() {
   this.showList = false;
 }
@@ -145,6 +131,25 @@ closePokemonList() {
     if (target !== this.input.nativeElement) {
       this.closePokemonList();
     }
+  }
+
+  selectPokemon(pokemon: any) {
+    this.selectedPokemon = pokemon;
+    this.input.nativeElement.value = pokemon.name;
+    const index = this.most_wanted_pokemons.findIndex((p: any) => p.name === pokemon.name);
+    if (index !== -1) {
+      this.most_wanted_pokemons[index].quantity++;
+    } else {
+      this.most_wanted_pokemons.push({ ...pokemon, quantity: 1 });
+    }
+
+    this.most_wanted_pokemons.sort((a: any, b: any) => b.quantity - a.quantity );
+    this.closePokemonList();
+  }
+
+  searchPokemon() {
+    // console.log(this.input);
+      this.modalService.openModal(this.selectedPokemon);
   }
 
 }
