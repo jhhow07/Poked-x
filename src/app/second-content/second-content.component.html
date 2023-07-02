@@ -45,7 +45,7 @@
     Pokédex
   </p>
   <div class="pokedex_box">
-    <div class="pokedex_pokemon" *ngFor="let pokemon of pokemonList">
+    <div class="pokedex_pokemon" *ngFor="let pokemon of pokemonList" (click)="openModal(pokemon)">
       <div class="pokemon_name_and_id">
         <span class="pokemon_name">{{ pokemon.name }}</span>
         <span class="pokemon_id">#{{ pokemon.id }}</span>

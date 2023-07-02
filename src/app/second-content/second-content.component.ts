@@ -152,4 +152,8 @@ closePokemonList() {
       this.modalService.openModal(this.selectedPokemon);
   }
 
+  openModal(pokemon: any) {
+    this.modalService.openModal(pokemon);
+  }
+
 }

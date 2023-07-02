@@ -12,15 +12,23 @@
       <div class="pokemon_img_box">
         <img class="pokemon_img" [src]="getPokemonImg(pokemon?.id)">
       </div>
-      <!-- <div class="someImgs_Box">
-        <img class="img[0]" [src]="getPokemonImg(pokemon?.id)">
-        <img class="img[1]" [src]="getPokemonImg(pokemon?.id)">
-        <img class="img[2]" [src]="getPokemonImg(pokemon?.id)">
-        <img class="img[3]" [src]="getPokemonImg(pokemon?.id)">
-      </div> -->
-      <!-- <div class="pokemon_status_box">
-
-      </div> -->
-    </div>
+      <div class="pokemon_three" *ngFor="let evolution of evolutionChain?.evolves_to">
+        <img class="evolution0" width="70px" [src]="getPokemonImgByName(evolutionChain.species.name)">
+        <img class="evolution1" width="70px" [src]="getPokemonImgByName(evolution.species.name)">
+        <ng-container class="pokemon_box" *ngFor="let evo of evolution?.evolves_to">
+          <img class="evolution2" width="70px" [src]="getPokemonImgByName(evo.species.name)">
+        </ng-container>
+      </div>
+      <span class="status">Status</span>
+      <div class="chart">
+        <div class="bar bar1" [ngStyle]="{ 'height': chartHeights[0] }"><span class="life_barsLabel barsLabel">Vida</span></div>
+        <div class="bar bar3" [ngStyle]="{ 'height': chartHeights[2] }"><span class="defense_barsLabel barsLabel">Defesa</span></div>
+        <div class="bar bar4" [ngStyle]="{ 'height': chartHeights[5] }"><span class="speed_barsLabel barsLabel">Velocidade</span></div>
+        <div class="bar bar2" [ngStyle]="{ 'height': chartHeights[1] }"><span class="atk_barsLabel barsLabel">Ataque</span></div>
+        <div class="label label3" [ngStyle]="{ 'top': chartLabels[2] }">80%</div>
+        <div class="label label2" [ngStyle]="{ 'top': chartLabels[1] }">50%</div>
+        <div class="label label1" [ngStyle]="{ 'top': chartLabels[0] }">20%</div>
+      </div>
+      <span class="info">Informações</span>
   </div>
 </div>
