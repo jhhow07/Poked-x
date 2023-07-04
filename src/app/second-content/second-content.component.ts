@@ -10,36 +10,6 @@ import { ModalService } from '../services/modal.service';
 export class SecondContentComponent {
   @ViewChild('input') input!: ElementRef<HTMLInputElement>;
 
-  most_wanted_pokemons: any[] = [{
-      abilities: [],
-      base_experience: 64,
-      forms: [],
-      game_indices: [],
-      height: 7,
-      held_items: [],
-      id: 1,
-      is_default: true,
-      location_area_encounters: "https://pokeapi.co/api/v2/pokemon/1/encounters",
-      name: "bulbasaur",
-      order: 1,
-      past_types: [],
-      quantity: 1,
-      species: {
-        name: "bulbasaur",
-        url: "https://pokeapi.co/api/v2/pokemon-species/1/"
-      },
-      sprites: {
-        back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png",
-        back_female: null,
-        back_shiny: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/1.png",
-        back_shiny_female: null,
-        front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",},
-      stats: [],
-      types: [],
-      weight: 69
-    }
-    ];
-
   currentIndex = 0;
   pokemonList: any[] = [];
   filteredList: any[] = [];
@@ -47,14 +17,14 @@ export class SecondContentComponent {
   blurTimeout: any;
   selectedPokemon: any;
 
-  constructor(private pokemonService: PokemonServiceService, private modalService: ModalService) {}
+  constructor(public pokemonService: PokemonServiceService, private modalService: ModalService) {}
 
   ngOnInit() {
     this.getPokemonList();
   }
 
   changeIndex(offset: number) {
-    const lastIndex = this.most_wanted_pokemons.length - 1;
+    const lastIndex = this.pokemonService.most_wanted_pokemons.length - 1;
 
     let newIndex = this.currentIndex + offset;
     if (newIndex < 0) {
@@ -136,14 +106,14 @@ closePokemonList() {
   selectPokemon(pokemon: any) {
     this.selectedPokemon = pokemon;
     this.input.nativeElement.value = pokemon.name;
-    const index = this.most_wanted_pokemons.findIndex((p: any) => p.name === pokemon.name);
+    const index = this.pokemonService.most_wanted_pokemons.findIndex((p: any) => p.name === pokemon.name);
     if (index !== -1) {
-      this.most_wanted_pokemons[index].quantity++;
+      this.pokemonService.most_wanted_pokemons[index].quantity++;
     } else {
-      this.most_wanted_pokemons.push({ ...pokemon, quantity: 1 });
+      this.pokemonService.most_wanted_pokemons.push({ ...pokemon, quantity: 1 });
     }
 
-    this.most_wanted_pokemons.sort((a: any, b: any) => b.quantity - a.quantity );
+    this.pokemonService.most_wanted_pokemons.sort((a: any, b: any) => b.quantity - a.quantity );
     this.closePokemonList();
   }
 

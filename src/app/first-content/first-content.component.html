@@ -1,4 +1,4 @@
-<div class="imgs_box">
+<div class="imgs_box desktop-hide">
   <svg class="logo_img" width="124" height="139" viewBox="0 0 110 129" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <rect y="-9" width="110" height="138" fill="url(#pattern0)"/>
     <defs>
@@ -10,7 +10,30 @@
   </svg>
   <img class="pokemons_img" width="360vh" src="../../assets/images/pokemons_img.png">
 </div>
-<div class="second_container">
+<div class="second_container desktop-hide">
   <h1 class="title">Explore o mundo dos <span class="pokemon_word">Pokémons</span></h1>
   <h2 class="subTitle">Descubra todas as espécies de Pokémons</h2>
 </div>
+
+<div class="dekstop-container mobile-hide">
+    <div class="second_container mobile-hide">
+      <img width="25%" class="mobile-hide" src="../../assets/images/logo_inicie.svg">
+      <h1 class="title">Explore o mundo dos <span class="pokemon_word">Pokémons</span></h1>
+      <h2 class="subTitle">Descubra todas as espécies de Pokémons</h2>
+      <div class="filter_box">
+        <input class="search_field" #input type="text" (click)="openPokemonList()" (input)="filterPokemonList(input.value)">
+        <input class="search_button" type="submit" value="Buscar" (click)="searchPokemon()">
+    </div>
+     <div style="width: 68%;" *ngIf="showList">
+      <ul class="pokemon_filtered_list">
+        <li (click)="selectPokemon(pokemon)" *ngFor="let pokemon of filteredList.slice(0, 15)" class="pokemon_list">
+          <img class="pokemon_list_img" [src]="getPokemonImg(pokemon.id)">
+          {{ pokemon.name }}
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div>
+      <img class="pokemons_img" width="360vh" src="../../assets/images/pokemons_img.png">
+    </div>
+  </div>

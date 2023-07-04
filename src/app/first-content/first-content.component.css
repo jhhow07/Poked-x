@@ -32,3 +32,129 @@
   font-size: 2.2vh;
   margin-top: -2.5vh !important;
 }
+
+@media (max-width: 768px)
+{
+  .mobile-hide {
+    display: none;
+  }
+}
+
+
+@media (min-width: 768px)
+{
+  .desktop-hide {
+    display: none;
+  }
+
+  .dekstop-container {
+    padding-right: 8vh
+  }
+
+  .logo_img {
+    display: block;
+  }
+
+  .second_container {
+    width: 50%;
+    padding-right: 4vh;
+    padding-left: 15vh;
+  }
+
+  .title {
+    font-size: 11vh;
+    line-height: 10vh;
+    margin-top: -10%;
+    margin-bottom: 4vh;
+  }
+
+  .subTitle {
+    font-size: 3.2vh;
+    margin-top: -0.5vh;
+  }
+
+  .dekstop-container {
+    display: flex;
+  }
+
+  .pokemons_img {
+    margin-top: 0;
+    width: 80vh;
+  }
+
+  .filter_box {
+    display: flex;
+    align-items: center;
+  }
+
+  .search_field {
+    font-size: 3vh;
+    font-family: 'Nunito', sans-serif;
+    padding: 1.2vh;
+    border-radius: 0px;
+    width: 50%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: #e4e4e48a;
+    box-shadow: -1px 8px 9px #0000001f;
+    text-transform: capitalize;
+  }
+
+  .search_button {
+    background: #EA686D;
+    color: white;
+    font-size: 3.2vh;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    border-radius: 0px 3px 3px 0px;
+    box-shadow: 1px 8px 10px #ea686d7a;
+    padding: 1.2% 13px;
+    cursor: pointer;
+  }
+
+  .pokemon_filtered_list {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 23%;
+    height: fit-content;
+    overflow: auto;
+    padding: 0;
+    margin: 0;
+    margin-top: 0.2%;
+    list-style: none;
+    background: #ebebeb;
+    font-family: 'Nunito';
+    text-transform: capitalize;
+    font-size: 2vh;
+    font-weight: 500;
+    box-shadow: -1px 4px 16px #00000047;
+    border-radius: 0px 0px 3px 3px;
+  }
+
+  .pokemon_list {
+    display: flex;
+    align-items: center;
+    padding: 0.7vh;
+    border-bottom: 0.1px solid #0000001f;
+    cursor: pointer;
+  }
+
+  .pokemon_list:hover {
+    display: flex;
+    align-items: center;
+    padding: 0.7vh;
+    border-bottom: 0.1px solid #0000001f;
+    box-shadow: inset 0 0 5px 1px #00000040;
+  }
+
+  .pokemon_list_img {
+    width: 5vh;
+    margin-right: 5%;
+  }
+
+}
+

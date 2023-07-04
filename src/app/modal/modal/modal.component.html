@@ -30,5 +30,15 @@
         <div class="label label1" [ngStyle]="{ 'top': chartLabels[0] }">20%</div>
       </div>
       <span class="info">Informações</span>
+      <div class="pokemon_height">
+        <span class="pokemon_height_label">Altura:</span>
+        <span class="pokemon_height">{{ formatMeasure(pokemon?.height, 'height') }}</span>
+      </div>
+      <div class="pokemon_weight">
+        <span class="pokemon_weight_label">Peso:</span>
+        <span class="pokemon_weight">{{ formatMeasure(pokemon?.weight, 'weight') }}</span>
+      </div>
+      <span class="description_label">Descrição</span>
+      <span class="description">{{ this.description }}</span>
   </div>
 </div>

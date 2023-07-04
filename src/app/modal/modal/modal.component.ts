@@ -18,6 +18,7 @@ export class ModalComponent {
   pokemonStats: any;
   chartHeights: string[] = ['0', '0', '0', '0', '0', '0']
   chartLabels: string[] = ['80%', '50%', '20%',];
+  description: string = '';
 
   constructor(
     public modalService: ModalService,
@@ -112,7 +113,9 @@ export class ModalComponent {
     this.pokemonService
       .getPokemonSpecie(this.pokemon.id)
       .subscribe((pokemon) => {
-        // console.log(pokemon);
+        console.log(pokemon.flavor_text_entries[0].flavor_text)
+        this.description = pokemon.flavor_text_entries.find((entry: any) => entry.language.name === 'en').flavor_text;
+        this.description = this.description.replace("", "");
         this.getPokemonThree(pokemon['evolution_chain'].url);
       });
   }
@@ -179,7 +182,7 @@ export class ModalComponent {
   }
 
   updateChartLabels() {
-    const chartHeight = 17; // Total height of the chart in vh
+    const chartHeight = 17;
     const chartHeight20 = chartHeight * 0.8;
     const chartHeight50 = chartHeight * 0.5;
     const chartHeight80 = chartHeight * 0.2;
@@ -188,34 +191,14 @@ export class ModalComponent {
     this.chartLabels[0] = `${chartHeight20}vh`;
   }
 
+  formatMeasure(value: number, unit: string): string {
+    if (unit === 'height') {
+      return value * 10 + 'cm';
+    } else if (unit === 'weight') {
+      return value / 10 + 'kg';
+    } else {
+      return '';
+    }
+  }
+
 }
-
-  // generateChart() {
-  //   const statsLabels = this.pokemonStats.map((stat: any) => stat.stat.name);
-  //   const statsData = this.pokemonStats.map((stat: any) => stat.base_stat);
-
-  //   const chartContainer = document.getElementById('chart-container');
-  //   if (chartContainer) {
-  //     chartContainer.innerHTML = '';
-
-  //     for (let i = 0; i < statsLabels.length; i++) {
-  //       const label = statsLabels[i];
-  //       const value = statsData[i];
-
-  //       const bar = document.createElement('div');
-  //       bar.classList.add('bar');
-  //       bar.style.width = `${value * 2}px`;
-
-  //       const barLabel = document.createElement('div');
-  //       barLabel.classList.add('bar-label');
-  //       barLabel.textContent = `${label} (${value})`;
-
-  //       const chartItem = document.createElement('div');
-  //       chartItem.classList.add('chart-item');
-  //       chartItem.appendChild(bar);
-  //       chartItem.appendChild(barLabel);
-
-  //       chartContainer?.appendChild(chartItem);
-  //     }
-  //   }
-  // }

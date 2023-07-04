@@ -201,3 +201,12 @@
   width: 5vh;
   margin-right: 5%;
 }
+
+
+
+@media (min-width: 768px)
+{
+  .desktop-hide {
+    display: none;
+  }
+}
