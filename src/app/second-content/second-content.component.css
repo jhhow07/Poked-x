@@ -53,6 +53,7 @@
   padding-right: 0.3vh;
   padding-left: 0.3vh;
 }
+
 .most_wanted_pokemon {
   width: 25vh;
   height: 31vh;
@@ -61,6 +62,24 @@
   padding-top: 2.5vh;
   padding-bottom: 2.5vh;
   box-shadow: 0px 15px 15px 0px #2F3E771A;
+  border: 1px solid #e3e3e394;
+}
+
+.most_wanted_pokemon_desktop {
+  width: 25vh;
+  height: 31vh;
+  padding-right: 2.5vh;
+  padding-left: 2.5vh;
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+  box-shadow: 0px 15px 15px 0px #2F3E771A;
+  border: 1px solid #e3e3e394;
+  margin-right: 1%;
+  cursor: pointer;
+}
+
+.most_wanted_pokemon_desktop:hover {
+  background-color: #ea686d33;
 }
 
 .pokemon_name_and_id {
@@ -124,6 +143,7 @@
 .right_arrow_box {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .left_arrow {
@@ -140,6 +160,24 @@
   font-size: 5.5vh;
   border-radius: 30px;
   margin-left: -2vh;
+}
+
+.left_arrow_desktop {
+  background: #EA686D;
+  color: white;
+  font-size: 5.5vh;
+  border-radius: 30px;
+  margin-right: -2vh;
+  z-index: 1;
+}
+
+
+.right_arrow_desktop {
+  background: #EA686D;
+  color: white;
+  font-size: 5.5vh;
+  border-radius: 30px;
+  margin-left: -3vh
 }
 
 .pokedex_box {
@@ -210,3 +248,11 @@
     display: none;
   }
 }
+
+@media (max-width: 768px)
+{
+  .mobile-hide {
+    display: none;
+  }
+}
+

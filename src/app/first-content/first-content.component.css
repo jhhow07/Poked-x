@@ -133,6 +133,7 @@
     font-weight: 500;
     box-shadow: -1px 4px 16px #00000047;
     border-radius: 0px 0px 3px 3px;
+    z-index: 2;
   }
 
   .pokemon_list {
@@ -156,5 +157,11 @@
     margin-right: 5%;
   }
 
+}
+
+@media (min-width: 1500px) {
+  .pokemons_img {
+    width: 66vh;
+  }
 }
 

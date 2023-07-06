@@ -10,41 +10,157 @@
     </li>
   </ul>
 </div>
+
+<!-- mobile mostWantedBox -->
 <div class="pokemons_box">
-  <p class="most_wanted_text">Mais procurados</p>
-  <div class="most_wanted_box">
-    <div class="left_arrow_box">
-      <span (click)="changeIndex(-1)" class="material-symbols-outlined left_arrow">
-        chevron_left
-      </span>
-    </div>
-    <div class="most_wanted_pokemon" (click)="openModal(pokemonService.most_wanted_pokemons[currentIndex])">
-      <div class="pokemon_name_and_id">
-        <span class="pokemon_name">{{ pokemonService.most_wanted_pokemons[currentIndex].name }}</span>
-        <span class="pokemon_id">#00{{ pokemonService.most_wanted_pokemons[currentIndex].id }}</span>
+  <div class="desktop-hide">
+    <p class="most_wanted_text">Mais procurados</p>
+    <div class="most_wanted_box">
+      <div class="left_arrow_box">
+        <span (click)="changeIndex(-1)" class="material-symbols-outlined left_arrow_desktop">
+          chevron_left
+        </span>
       </div>
-      <div class="pokemon_img_box">
-        <img width="140vh" [src]="getPokemonImg(pokemonService.most_wanted_pokemons[currentIndex].id)">
+
+      <div class="most_wanted_pokemon_desktop" (click)="openModal(pokemonService.most_wanted_pokemons[currentIndex])">
+        <div class="pokemon_name_and_id">
+          <span class="pokemon_name">{{ pokemonService.most_wanted_pokemons[currentIndex].name }}</span>
+          <span class="pokemon_id">#00{{ pokemonService.most_wanted_pokemons[currentIndex].id }}</span>
+        </div>
+        <div class="pokemon_img_box">
+          <img width="150vh" [src]="getPokemonImg(pokemonService.most_wanted_pokemons[currentIndex].id)">
+        </div>
+        <div class="pokemon_height">
+          <span class="pokemon_height_label">Altura:</span>
+          <span class="pokemon_height">{{ formatMeasure(pokemonService.most_wanted_pokemons[currentIndex].height, 'height')}}</span>
+        </div>
+        <div class="pokemon_weight">
+          <span class="pokemon_weight_label">Peso</span>
+          <span class="pokemon_weight">{{ formatMeasure(pokemonService.most_wanted_pokemons[currentIndex].weight, 'weight')}}</span>
+        </div>
       </div>
-      <div class="pokemon_height">
-        <span class="pokemon_height_label">Altura:</span>
-        <span class="pokemon_height">{{ formatMeasure(pokemonService.most_wanted_pokemons[currentIndex].height, 'height')}}</span>
+      <div class="right_arrow_box">
+        <span (click)="changeIndex(1)" class="material-symbols-outlined right_arrow_desktop">
+          chevron_right
+        </span>
       </div>
-      <div class="pokemon_weight">
-        <span class="pokemon_weight_label">Peso</span>
-        <span class="pokemon_weight">{{ formatMeasure(pokemonService.most_wanted_pokemons[currentIndex].weight, 'weight')}}</span>
-      </div>
-    </div>
-    <div class="right_arrow_box">
-      <span (click)="changeIndex(1)" class="material-symbols-outlined right_arrow">
-        chevron_right
-      </span>
     </div>
   </div>
-  <p class="pokedex_text">
+
+  <!-- desktop mostWantedBox -->
+  <div class="mobile-hide">
+    <p class="most_wanted_text">Mais procurados</p>
+    <div class="most_wanted_box">
+      <div class="left_arrow_box">
+        <span (click)="changeIndex(-1)" class="material-symbols-outlined left_arrow_desktop">
+          chevron_left
+        </span>
+      </div>
+    <!--Pokemon 1-->
+      <div class="most_wanted_pokemon_desktop" (click)="openModal(pokemonService.most_wanted_pokemons[calculateIndex(0)])">
+        <div class="pokemon_name_and_id">
+          <span class="pokemon_name">{{ pokemonService.most_wanted_pokemons[calculateIndex(0)].name }}</span>
+          <span class="pokemon_id">#00{{ pokemonService.most_wanted_pokemons[calculateIndex(0)].id }}</span>
+        </div>
+        <div class="pokemon_img_box">
+          <img width="150vh" [src]="getPokemonImg(pokemonService.most_wanted_pokemons[calculateIndex(0)].id)">
+        </div>
+        <div class="pokemon_height">
+          <span class="pokemon_height_label">Altura:</span>
+          <span class="pokemon_height">{{ formatMeasure(pokemonService.most_wanted_pokemons[calculateIndex(0)].height, 'height')}}</span>
+        </div>
+        <div class="pokemon_weight">
+          <span class="pokemon_weight_label">Peso</span>
+          <span class="pokemon_weight">{{ formatMeasure(pokemonService.most_wanted_pokemons[calculateIndex(0)].weight, 'weight')}}</span>
+        </div>
+      </div>
+
+    <!--Pokemon 2-->
+      <div class="most_wanted_pokemon_desktop" (click)="openModal(pokemonService.most_wanted_pokemons[calculateIndex(1)])">
+        <div class="pokemon_name_and_id">
+          <span class="pokemon_name">{{ pokemonService.most_wanted_pokemons[calculateIndex(1)].name }}</span>
+          <span class="pokemon_id">#00{{ pokemonService.most_wanted_pokemons[calculateIndex(1)].id }}</span>
+        </div>
+        <div class="pokemon_img_box">
+          <img width="160vh" [src]="getPokemonImg(pokemonService.most_wanted_pokemons[calculateIndex(1)].id)">
+        </div>
+        <div class="pokemon_height">
+          <span class="pokemon_height_label">Altura:</span>
+          <span class="pokemon_height">{{ formatMeasure(pokemonService.most_wanted_pokemons[calculateIndex(1)].height, 'height')}}</span>
+        </div>
+        <div class="pokemon_weight">
+          <span class="pokemon_weight_label">Peso</span>
+          <span class="pokemon_weight">{{ formatMeasure(pokemonService.most_wanted_pokemons[calculateIndex(1)].weight, 'weight')}}</span>
+        </div>
+      </div>
+
+    <!--Pokemon 3-->
+      <div class="most_wanted_pokemon_desktop" (click)="openModal(pokemonService.most_wanted_pokemons[calculateIndex(2)])">
+        <div class="pokemon_name_and_id">
+          <span class="pokemon_name">{{ pokemonService.most_wanted_pokemons[calculateIndex(2)].name }}</span>
+          <span class="pokemon_id">#00{{ pokemonService.most_wanted_pokemons[calculateIndex(2)].id }}</span>
+        </div>
+        <div class="pokemon_img_box">
+          <img width="160vh" [src]="getPokemonImg(pokemonService.most_wanted_pokemons[calculateIndex(2)].id)">
+        </div>
+        <div class="pokemon_height">
+          <span class="pokemon_height_label">Altura:</span>
+          <span class="pokemon_height">{{ formatMeasure(pokemonService.most_wanted_pokemons[calculateIndex(2)].height, 'height')}}</span>
+        </div>
+        <div class="pokemon_weight">
+          <span class="pokemon_weight_label">Peso</span>
+          <span class="pokemon_weight">{{ formatMeasure(pokemonService.most_wanted_pokemons[calculateIndex(2)].weight, 'weight')}}</span>
+        </div>
+      </div>
+
+    <!--Pokemon 4-->
+      <div class="most_wanted_pokemon_desktop" (click)="openModal(pokemonService.most_wanted_pokemons[calculateIndex(3)])">
+        <div class="pokemon_name_and_id">
+          <span class="pokemon_name">{{ pokemonService.most_wanted_pokemons[calculateIndex(3)].name }}</span>
+          <span class="pokemon_id">#00{{ pokemonService.most_wanted_pokemons[calculateIndex(3)].id }}</span>
+        </div>
+        <div class="pokemon_img_box">
+          <img width="160vh" [src]="getPokemonImg(pokemonService.most_wanted_pokemons[calculateIndex(3)].id)">
+        </div>
+        <div class="pokemon_height">
+          <span class="pokemon_height_label">Altura:</span>
+          <span class="pokemon_height">{{ formatMeasure(pokemonService.most_wanted_pokemons[calculateIndex(3)].height, 'height')}}</span>
+        </div>
+        <div class="pokemon_weight">
+          <span class="pokemon_weight_label">Peso</span>
+          <span class="pokemon_weight">{{ formatMeasure(pokemonService.most_wanted_pokemons[calculateIndex(3)].weight, 'weight')}}</span>
+        </div>
+      </div>
+
+    <!--Pokemon 5-->
+       <div class="most_wanted_pokemon_desktop" (click)="openModal(pokemonService.most_wanted_pokemons[calculateIndex(4)])">
+        <div class="pokemon_name_and_id">
+          <span class="pokemon_name">{{ pokemonService.most_wanted_pokemons[calculateIndex(4)].name }}</span>
+          <span class="pokemon_id">#00{{ pokemonService.most_wanted_pokemons[calculateIndex(4)].id }}</span>
+        </div>
+        <div class="pokemon_img_box">
+          <img width="160vh" [src]="getPokemonImg(pokemonService.most_wanted_pokemons[calculateIndex(4)].id)">
+        </div>
+        <div class="pokemon_height">
+          <span class="pokemon_height_label">Altura:</span>
+          <span class="pokemon_height">{{ formatMeasure(pokemonService.most_wanted_pokemons[calculateIndex(4)].height, 'height')}}</span>
+        </div>
+        <div class="pokemon_weight">
+          <span class="pokemon_weight_label">Peso</span>
+          <span class="pokemon_weight">{{ formatMeasure(pokemonService.most_wanted_pokemons[calculateIndex(4)].weight, 'weight')}}</span>
+        </div>
+      </div>
+      <div class="right_arrow_box">
+        <span (click)="changeIndex(1)" class="material-symbols-outlined right_arrow_desktop">
+          chevron_right
+        </span>
+      </div>
+    </div>
+  </div>
+  <p class="pokedex_text desktop-hide">
     Pokédex
   </p>
-  <div class="pokedex_box">
+  <div class="pokedex_box desktop-hide">
     <div class="pokedex_pokemon" *ngFor="let pokemon of pokemonList" (click)="openModal(pokemon)">
       <div class="pokemon_name_and_id">
         <span class="pokemon_name">{{ pokemon.name }}</span>

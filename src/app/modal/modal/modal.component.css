@@ -13,14 +13,11 @@
 
 .modal.open {
   display: flex;
-  /* flex-flow: row-reverse; */
+  background-color: #fefefe;
 }
 
 .modal-content {
-  background-color: #fefefe;
-  /* padding: 20px; */
   width: 100%;
-  height: fit-content;
 }
 
 .close {

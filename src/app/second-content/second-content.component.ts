@@ -25,15 +25,28 @@ export class SecondContentComponent {
 
   changeIndex(offset: number) {
     const lastIndex = this.pokemonService.most_wanted_pokemons.length - 1;
-
     let newIndex = this.currentIndex + offset;
+
     if (newIndex < 0) {
       newIndex = lastIndex;
     } else if (newIndex > lastIndex) {
       newIndex = 0;
     }
 
-    this.currentIndex = newIndex;
+    if (newIndex !== this.currentIndex) {
+      this.currentIndex = newIndex;
+    }
+  }
+
+  calculateIndex(offset: number): number {
+    const lastIndex = this.pokemonService.most_wanted_pokemons.length - 1;
+    let newIndex = this.currentIndex + offset;
+
+    if (newIndex > lastIndex) {
+      newIndex = newIndex - lastIndex - 1;
+    }
+
+    return newIndex;
   }
 
   getPokemonList() {
