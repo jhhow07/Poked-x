@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
 body {
-  background: linear-gradient(0, #0000000d, transparent)
+  background: linear-gradient(0deg, rgba(255,255,255,1) 25%, rgb(0 68 240 / 8%) 100%);
 }
 
 html {

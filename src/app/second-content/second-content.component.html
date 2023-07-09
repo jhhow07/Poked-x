@@ -157,6 +157,7 @@
       </div>
     </div>
   </div>
+  <!-- mobile pokedex -->
   <p class="pokedex_text desktop-hide">
     Pokédex
   </p>
@@ -179,4 +180,63 @@
       </div>
     </div>
   </div>
+  <!-- desktop pokedex -->
+  <!-- mobile pokedex -->
+<p class="pokedex_text desktop-hide">
+  Pokédex
+</p>
+<div class="pokedex_box desktop-hide">
+  <div class="pokedex_pokemon" *ngFor="let pokemon of pokemonList" (click)="openModal(pokemon)">
+    <div class="pokemon_name_and_id">
+      <span class="pokemon_name">{{ pokemon.name }}</span>
+      <span class="pokemon_id">#00{{ pokemon.id }}</span>
+    </div>
+    <div class="pokemon_img_box">
+      <img width="140vh" [src]="getPokemonImg(pokemon.id)">
+    </div>
+    <div class="pokemon_height">
+      <span class="pokemon_height_label">Altura:</span>
+      <span class="pokemon_height">{{ formatMeasure(pokemon.height, 'height') }}</span>
+    </div>
+    <div class="pokemon_weight">
+      <span class="pokemon_weight_label">Peso:</span>
+      <span class="pokemon_weight">{{ formatMeasure(pokemon.weight, 'weight') }}</span>
+    </div>
+  </div>
+</div>
+
+<!-- desktop pokedex -->
+<div class="pokedex_title_box_desktop mobile-hide">
+  <p class="pokedex_text_desktop mobile-hide">
+    Pokédex
+  </p>
+  <div class="paginator mobile-hide">
+    <span (click)="showPreviousPage()" class="material-symbols-outlined left_arrow_pokedex">
+      chevron_left
+    </span>
+    <span (click)="showNextPage()" class="material-symbols-outlined right_arrow_pokedex">
+      chevron_right
+    </span>
+  </div>
+</div>
+<div class="pokedex_box_desktop mobile-hide">
+  <div class="pokedex_pokemon_desktop" *ngFor="let pokemon of displayedPokemonList" (click)="openModal(pokemon)">
+    <div class="pokemon_name_and_id">
+      <span class="pokemon_name">{{ pokemon.name }}</span>
+      <span class="pokemon_id">#00{{ pokemon.id }}</span>
+    </div>
+    <div class="pokemon_img_box">
+      <img width="140vh" [src]="getPokemonImg(pokemon.id)">
+    </div>
+    <div class="pokemon_height">
+      <span class="pokemon_height_label">Altura:</span>
+      <span class="pokemon_height">{{ formatMeasure(pokemon.height, 'height') }}</span>
+    </div>
+    <div class="pokemon_weight">
+      <span class="pokemon_weight_label">Peso:</span>
+      <span class="pokemon_weight">{{ formatMeasure(pokemon.weight, 'weight') }}</span>
+    </div>
+  </div>
+</div>
+
 </div>

@@ -13,6 +13,9 @@ export class SecondContentComponent {
   currentIndex = 0;
   pokemonList: any[] = [];
   filteredList: any[] = [];
+  displayedPokemonList: any[] = [];
+  currentPage: number = 1;
+  pageSize: number = 10;
   showList = false;
   blurTimeout: any;
   selectedPokemon: any;
@@ -21,6 +24,33 @@ export class SecondContentComponent {
 
   ngOnInit() {
     this.getPokemonList();
+    setTimeout(() => {
+      this.updateDisplayedPokemonList();
+    }, 1000);
+  }
+
+  updateDisplayedPokemonList() {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.displayedPokemonList = this.pokemonList.slice(startIndex, endIndex);
+  }
+
+  showNextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updateDisplayedPokemonList();
+    }
+  }
+
+  showPreviousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updateDisplayedPokemonList();
+    }
+  }
+
+  get totalPages() {
+    return Math.ceil(this.pokemonList.length / this.pageSize);
   }
 
   changeIndex(offset: number) {
