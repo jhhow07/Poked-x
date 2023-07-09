@@ -323,7 +323,7 @@
 @media (max-width: 768px)
 {
   .mobile-hide {
-    display: none;
+    display: none !important;
   }
 }
 
